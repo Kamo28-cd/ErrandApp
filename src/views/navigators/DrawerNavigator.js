@@ -1,10 +1,12 @@
 import React from 'react';
 import {createDrawerNavigator, DrawerContentScrollView, DrawerItemList, useDrawerProgress, useDrawerStatus} from '@react-navigation/drawer';
-import {View, Image, Text} from 'react-native';
-import HomeScreen from '../screens/HomeScreen';
-import Screen1 from '../screens/Screen1'; 
-import Screen2 from '../screens/Screen2';
-import Screen3 from '../screens/Screen3';
+import {View, Image, Text, StatusBar} from 'react-native';
+import HomeScreen from '../screen/HomeScreen';
+import Animated from 'react-native-reanimated';
+
+import Screen1 from '../screen/Screen1'; 
+import Screen2 from '../screen/Screen2';
+import Screen3 from '../screen/Screen3';
 import COLORS from '../../const/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -38,18 +40,18 @@ const DrawerScreenContainer = ({children}) =>{
 
 const DrawerNavigator = () => {
 	return (
-		<Drawer.Navigator screenOptions={{headerShown: false
+		<Drawer.Navigator screenOptions={{headerShown: false,
 			drawerType: 'slide',
 			drawerStyle:	{
 				width:200,
 				backgroundColor: COLORS.primary,
 			},
 			overlayColor: null,
-			screenContainerStyle: {
-				backgoundColor: COLORS.primary,
+			sceneContainerStyle:{
+				backgroundColor: COLORS.primary,
 			},
 			darwerActiveTintColor:COLORS.white,
-			drawerInactiveTintColor: COLORS.grey,
+			drawerInactiveTintColor: COLORS.white,
 			drawerItemStyle: {backgroundColor:null},
 			drawerLabelStyle: {
 				fontWeight:'bold',
